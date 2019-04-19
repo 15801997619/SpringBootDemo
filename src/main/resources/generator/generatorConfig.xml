@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- classPathEntry location:数据库的JDBC驱动,换成你自己的驱动位置 -->
+	<classPathEntry location="H:\eclipsemars\E\workspace\zhqz_new\city\app\acquirer-parent-app\acquirer-bridge\target\lib\ojdbc6-11.2.0.jar" />
+	
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		
+		<!-- 去除自动生成的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@172.18.10.22:1521/yktdevdb" userId="sjzzhqz" password="Sjzqz604831">
+		</jdbcConnection>
+		
+		<javaTypeResolver >
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		
+		<!-- targetProject:自动生成代码的位置,此处是放置在桌面指定文件夹里面;targetPackage:代码的包路径; -->
+		<!-- 表对应实体的Javamodel -->
+		<javaModelGenerator targetPackage="com.springbootdemo.springbootdemo.model" targetProject="src/main/java">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+		<!-- 表对应实体的mapper.xml -->
+		<sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+		
+		<!-- 表对应实体的mapper.java -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.springbootdemo.springbootdemo.dao"  targetProject="src/main/java">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+		<!-- tableName:用于自动生成代码的数据库表;domainObjectName:对应于数据库表的javaBean类名 -->
+		<!--schema防止重复生成，值用sql查询：select SYS_CONTEXT('USERENV','CURRENT_SCHEMA') CURRENT_SCHEMA from dual;-->
+		<table schema="SJZZHQZ" tableName="TBL_APP_VERSION" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>
+		</context>
+		
+</generatorConfiguration>

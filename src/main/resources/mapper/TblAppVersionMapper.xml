@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootdemo.springbootdemo.dao.TblAppVersionMapper">
+  <resultMap id="BaseResultMap" type="com.springbootdemo.springbootdemo.model.TblAppVersion">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="VERSION_SEQ" jdbcType="VARCHAR" property="versionSeq" />
+    <result column="UPDATE_FLAG" jdbcType="CHAR" property="updateFlag" />
+    <result column="USE_FLAG" jdbcType="CHAR" property="useFlag" />
+    <result column="DOWN_URL" jdbcType="VARCHAR" property="downUrl" />
+    <result column="UPDATE_MSG" jdbcType="VARCHAR" property="updateMsg" />
+    <result column="REC_CRT_TIME" jdbcType="VARCHAR" property="recCrtTime" />
+    <result column="REC_UPD_TIME" jdbcType="CHAR" property="recUpdTime" />
+    <result column="RESVD" jdbcType="VARCHAR" property="resvd" />
+    <result column="VERSION_NAME" jdbcType="VARCHAR" property="versionName" />
+    <result column="SYS_TYPE" jdbcType="CHAR" property="sysType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, VERSION_SEQ, UPDATE_FLAG, USE_FLAG, DOWN_URL, UPDATE_MSG, REC_CRT_TIME, REC_UPD_TIME, 
+    RESVD, VERSION_NAME, SYS_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SJZZHQZ.TBL_APP_VERSION
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SJZZHQZ.TBL_APP_VERSION
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.springbootdemo.springbootdemo.model.TblAppVersion">
+    insert into SJZZHQZ.TBL_APP_VERSION (ID, VERSION_SEQ, UPDATE_FLAG, 
+      USE_FLAG, DOWN_URL, UPDATE_MSG, 
+      REC_CRT_TIME, REC_UPD_TIME, RESVD, 
+      VERSION_NAME, SYS_TYPE)
+    values (#{id,jdbcType=VARCHAR}, #{versionSeq,jdbcType=VARCHAR}, #{updateFlag,jdbcType=CHAR}, 
+      #{useFlag,jdbcType=CHAR}, #{downUrl,jdbcType=VARCHAR}, #{updateMsg,jdbcType=VARCHAR}, 
+      #{recCrtTime,jdbcType=VARCHAR}, #{recUpdTime,jdbcType=CHAR}, #{resvd,jdbcType=VARCHAR}, 
+      #{versionName,jdbcType=VARCHAR}, #{sysType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springbootdemo.springbootdemo.model.TblAppVersion">
+    insert into SJZZHQZ.TBL_APP_VERSION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="versionSeq != null">
+        VERSION_SEQ,
+      </if>
+      <if test="updateFlag != null">
+        UPDATE_FLAG,
+      </if>
+      <if test="useFlag != null">
+        USE_FLAG,
+      </if>
+      <if test="downUrl != null">
+        DOWN_URL,
+      </if>
+      <if test="updateMsg != null">
+        UPDATE_MSG,
+      </if>
+      <if test="recCrtTime != null">
+        REC_CRT_TIME,
+      </if>
+      <if test="recUpdTime != null">
+        REC_UPD_TIME,
+      </if>
+      <if test="resvd != null">
+        RESVD,
+      </if>
+      <if test="versionName != null">
+        VERSION_NAME,
+      </if>
+      <if test="sysType != null">
+        SYS_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="versionSeq != null">
+        #{versionSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="updateFlag != null">
+        #{updateFlag,jdbcType=CHAR},
+      </if>
+      <if test="useFlag != null">
+        #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="downUrl != null">
+        #{downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="updateMsg != null">
+        #{updateMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="recCrtTime != null">
+        #{recCrtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="recUpdTime != null">
+        #{recUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="resvd != null">
+        #{resvd,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null">
+        #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysType != null">
+        #{sysType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springbootdemo.springbootdemo.model.TblAppVersion">
+    update SJZZHQZ.TBL_APP_VERSION
+    <set>
+      <if test="versionSeq != null">
+        VERSION_SEQ = #{versionSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="updateFlag != null">
+        UPDATE_FLAG = #{updateFlag,jdbcType=CHAR},
+      </if>
+      <if test="useFlag != null">
+        USE_FLAG = #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="downUrl != null">
+        DOWN_URL = #{downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="updateMsg != null">
+        UPDATE_MSG = #{updateMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="recCrtTime != null">
+        REC_CRT_TIME = #{recCrtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="recUpdTime != null">
+        REC_UPD_TIME = #{recUpdTime,jdbcType=CHAR},
+      </if>
+      <if test="resvd != null">
+        RESVD = #{resvd,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null">
+        VERSION_NAME = #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysType != null">
+        SYS_TYPE = #{sysType,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springbootdemo.springbootdemo.model.TblAppVersion">
+    update SJZZHQZ.TBL_APP_VERSION
+    set VERSION_SEQ = #{versionSeq,jdbcType=VARCHAR},
+      UPDATE_FLAG = #{updateFlag,jdbcType=CHAR},
+      USE_FLAG = #{useFlag,jdbcType=CHAR},
+      DOWN_URL = #{downUrl,jdbcType=VARCHAR},
+      UPDATE_MSG = #{updateMsg,jdbcType=VARCHAR},
+      REC_CRT_TIME = #{recCrtTime,jdbcType=VARCHAR},
+      REC_UPD_TIME = #{recUpdTime,jdbcType=CHAR},
+      RESVD = #{resvd,jdbcType=VARCHAR},
+      VERSION_NAME = #{versionName,jdbcType=VARCHAR},
+      SYS_TYPE = #{sysType,jdbcType=CHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
