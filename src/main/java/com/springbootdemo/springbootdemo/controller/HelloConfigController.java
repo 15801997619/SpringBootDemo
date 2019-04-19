@@ -22,7 +22,7 @@ public class HelloConfigController {
     @RequestMapping(value = "/myConfig")
     public String testMyConfig(){
 
-        System.out.println(myConfig.getTeacher()+"你好，我叫："+myConfig.getName()+","+myConfig.getSex()+"今年"+myConfig.getAge()+"岁，从事"+myConfig.getJob()+"工作"+myConfig.getHome());
+        System.out.println(myConfig.getTeacher()+"hello，你好，我叫："+myConfig.getName()+","+myConfig.getSex()+"今年"+myConfig.getAge()+"岁，从事"+myConfig.getJob()+"工作"+myConfig.getHome());
         return "我叫："+myConfig.getName()+","+myConfig.getSex()+"今年"+myConfig.getAge()+"岁，从事"+myConfig.getJob()+"工作,home:"+myConfig.getHome();
     }
 
